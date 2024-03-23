@@ -6,17 +6,6 @@ import mysql.connector
 import pyrebase
 app = Flask(__name__)
 
-data = {
-    "Project Name": [],
-    "advertisement_id": [],
-    "property type": [],
-    "area in sqft": [],
-    "Developer/Builder Name": [],
-    "Number of Bedrooms": [],
-    "Number of Bathrooms": [],
-    "Location": [],
-    "Project Status": []
-}
 
 # firebase credentials
 config = {
@@ -136,7 +125,7 @@ def accept_form():
 
         if person["username"]:
             db.child("users").child(person["uid"]).child(
-                person["username"]).update(properties)
+                person["username"]).push(properties)
 
         # db_entry(mydb, email, subject, message)
 
