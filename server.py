@@ -20,14 +20,14 @@ data = {
 
 # firebase credentials
 config = {
-    'apiKey': "apiKey",
-    'authDomain': "domain.com",
-    'databaseURL': "https://url.firebaseio.com",
-    'projectId': "pid",
-    'storageBucket': "buck.appspot.com",
-    'messagingSenderId': "1234",
-    'appId': "1:1234:web:5678",
-    'measurementId': "G-abc"
+    'apiKey': "AIzaSyAMd6Tw1a0k6F1CG4al43Vk6CRLCFlpy_4",
+    'authDomain': "trial-b8c5a.firebaseapp.com",
+    'databaseURL': "https://trial-b8c5a-default-rtdb.firebaseio.com",
+    'projectId': "trial-b8c5a",
+    'storageBucket': "-b8trialc5a.appspot.com",
+    'messagingSenderId': "287460725639",
+    'appId': "1:287460725639:web:b55cd1b4ca7b08babdf922",
+    'measurementId': "G-YH3Y5QKY95"
 }
 # initialize firebase
 firebase = pyrebase.initialize_app(config)
@@ -123,12 +123,31 @@ def accept_form():
         project_status = data['project_status']
         print(project_name, property_type, area_in_sqft, developer_name,
               bedrooms, bathrooms, location, project_status)
+        properties = properties = {
+            "project_name": project_name,
+            "property_type": property_type,
+            "area_in_sqft": area_in_sqft,
+            "developer_name": developer_name,
+            "bedrooms": bedrooms,
+            "bathrooms": bathrooms,
+            "location": location,
+            "project_status": project_status
+        }
+
+        if person["username"]:
+            db.child("users").child(person["uid"]).child(
+                person["username"]).update(properties)
 
         # db_entry(mydb, email, subject, message)
 
         return redirect('./thankyou.html')
     else:
         'get request'
+
+
+@app.route('/signup.html')
+def signup_page():
+    return render_template('./signup.html')
 
 
 @app.route('/<string:page_name>')
