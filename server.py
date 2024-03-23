@@ -20,14 +20,14 @@ data = {
 
 # firebase credentials
 config = {
-    'apiKey': "AIzaSyAMd6Tw1a0k6F1CG4al43Vk6CRLCFlpy_4",
-    'authDomain': "trial-b8c5a.firebaseapp.com",
-    'databaseURL': "https://trial-b8c5a-default-rtdb.firebaseio.com",
-    'projectId': "trial-b8c5a",
-    'storageBucket': "-b8trialc5a.appspot.com",
-    'messagingSenderId': "287460725639",
-    'appId': "1:287460725639:web:b55cd1b4ca7b08babdf922",
-    'measurementId': "G-YH3Y5QKY95"
+    'apiKey': "apiKey",
+    'authDomain': "domain.com",
+    'databaseURL': "https://url.firebaseio.com",
+    'projectId': "pid",
+    'storageBucket': "buck.appspot.com",
+    'messagingSenderId': "1234",
+    'appId': "1:1234:web:5678",
+    'measurementId': "G-abc"
 }
 # initialize firebase
 firebase = pyrebase.initialize_app(config)
