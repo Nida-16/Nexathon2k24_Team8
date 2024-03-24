@@ -7,6 +7,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -5680,7 +5682,12 @@ body.minimal {
 }
 
 .hero-full-container {
-    height: 75vh
+    height: 100vh;
+    /* Set the height to 100% of the viewport height */
+    background-size: cover;
+    /* Ensure the background image covers the entire container */
+    background-position: center;
+    /* Center the background image */
 }
 
 .hero-full-container h1 {
@@ -5694,6 +5701,8 @@ body.minimal {
     height: 100vh;
     min-height: 100vh
 }
+
+
 
 .hero-full-container .hero-full-wrapper .text-content {
     vertical-align: middle;
@@ -5735,7 +5744,7 @@ body.minimal {
 }
 
 .section-container.only-container {
-    min-height: 84vh
+    min-height: 100vh
 }
 
 @media (max-width:768px) {

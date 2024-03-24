@@ -15,7 +15,8 @@
 
   <title>Title page</title>  
 
-<link href="static/main.3f6952e4.css" rel="stylesheet"></head>
+  <link href="static/main.3f6952e4.css" rel="stylesheet">
+</head>
 
 <body class="minimal">
 <div id="site-border-left"></div>
@@ -72,23 +73,21 @@
               </h1>
             </div>
           </div>
-          <div class="container" id="cardContainer"></div>
+          <div class='propertycards' id="cardContainer" action='createCards()'></div>
         </div>
       </div>
     </div>
   </div>
-
+  <script type="text/javascript" src="static/main.70a66962.js"></script></body>
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
-     type();
+    type();
      movingBackgroundImage();
+    createCards();
   });
+  
 </script>
-
-
-<script type="text/javascript" src="static/main.70a66962.js"></script></body>
-<script src="card.js"></script>
-
+<script src='static/card.js'></script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
   
@@ -110,7 +109,6 @@
 
   const db = getDatabase();
   const usersRef = ref(db, 'users');
-  {% comment %} console.log(usersRef) {% endcomment %}
 
   function readUsers() {
     onValue(usersRef, (snapshot) => {
@@ -121,7 +119,6 @@
     });
   }
   readUsers();
-
 </script>
   
 </html>
