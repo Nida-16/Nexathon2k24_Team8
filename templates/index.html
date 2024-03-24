@@ -73,7 +73,7 @@
               </h1>
             </div>
           </div>
-          <div class='propertycards' id="cardContainer" action='createCards()'></div>
+          <div class='propertycards' id="cardContainer" ></div>
         </div>
       </div>
     </div>
@@ -109,16 +109,50 @@
 
   const db = getDatabase();
   const usersRef = ref(db, 'users');
+  
+   var property_list = [];
 
-  function readUsers() {
-    onValue(usersRef, (snapshot) => {
-      snapshot.forEach((snap) => {
-        const user = snap.val();
-        console.log(user.username);
+function getPropertyDetails() {
+  onValue(usersRef, (snapshot) => {
+    snapshot.forEach((snap) => {
+      const user = snap.val();
+      Object.entries(user).forEach(([key, value]) => {
+        if (key === user.username) { // Check if the key matches the username
+          //console.log(key, value); // Display username and its associated value object
+          Object.entries(value).forEach(([itemId, item]) => {
+            //console.log(itemId, item); // Display itemId and its associated item object
+            // Access individual properties
+            const area_in_sqft = item.area_in_sqft;
+            const bathrooms = item.bathrooms;
+            const bedrooms = item.bedrooms;
+            const developer_name = item.developer_name;
+            const location = item.location;
+            const project_name = item.project_name;
+            const project_status = item.project_status;
+            const property_type = item.property_type;
+
+            // Append key-value pairs to property_list
+            property_list.push({
+              area_in_sqft: area_in_sqft,
+              bathrooms: bathrooms,
+              bedrooms: bedrooms,
+              developer_name: developer_name,
+              location: location,
+              project_name: project_name,
+              project_status: project_status,
+              property_type: property_type
+            });
+          });
+        }
       });
     });
-  }
-  readUsers();
+  });
+}
+getPropertyDetails();
+console.log('index')
+console.log(property_list)
+
+
 </script>
   
 </html>

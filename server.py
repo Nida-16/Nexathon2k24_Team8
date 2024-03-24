@@ -144,5 +144,5 @@ def route_pages(page_name):
     if person["is_logged_in"] == True:
         return render_template(page_name)
     else:
-        print('bug')
+        # print('bug')
         return render_template('./login.html')
